@@ -80,3 +80,31 @@ Nothing happens unless they are merging the two branches. If they are merging th
 - For cherry-pick, even though its the same change it produces a new commit with a new hash.
 - For git log, I was surprised that git log doesn't show commit history from other branches. It made sense thinking about it, but at first I was confused.
 - git blame, I didn't find anything particularly interesting on my repo, but using it on other projects I found if someone did a wide-scale change like adding a new Vscode setting (Prettier for instance) the freshest change is that author for _every single line_.
+
+# Git Concepts: Git Bisect
+
+## What does git bisect do?
+
+It is essentially binary search for finding the right commit where a bug was introduced. You begin bisect, then you indicate which last commit didn't have the bug, and which commit definitely has the bug. Git will check out a commit halfway between the two, and you check the commit, reassigning git bisect good or bad. Git will then find another halfway point, and this is repeated until the commit where the bug is has been found (where you will stop the git bisect).
+
+`git bisect start` this begins a bisect session.
+
+`git bisect bad <commit-hash> /<a tag>/<branch name>/<relative reference like HEAD~10>` this marks a commit as bad (has the bug).
+
+`git bisect good <commit-hash> /<a tag>/<branch name>/<relative reference like HEAD~10>`this marks a commit as good, (bug free).
+
+`git bisect old <commit>` lets you mark a commit that has "old" behaviour (I believe for cases where it is not a bug-finding situation). `git bisect new <commit>` is the opposite, the new behaviour.
+
+`git bisect skip <commit>` this lets you skip a commit and forces Git to pick a different commit.
+
+`git bisect reset` this ends a bisect session, and it returns you to the branch/commit you were on before you started.
+
+## When would you use it in real-world debugging situation?
+
+When you have been working on your branch, and you notice that a bug has been introduced, and you need to resolve it in isolation before you request a code review or merge it in any capacity. Or, after a merge or some new update, code that was working before no longer works, and you need to find the introduced code that causes the issue.
+
+It would be especially useful if multiple people are working on the same feature, or if there have been environment changes.
+
+## How does it compare to manually reviewing commits?
+
+With manual reviews, you would be going through each commit one by one, whereas git bisect allows you to use binary search to find the introduced bad/unintended behaviour. I think git bisect would be best for situations where there is many commits to sort through, however if it is 5ish commits (like I did in my practice), manual is more efficent.
