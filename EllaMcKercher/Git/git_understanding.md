@@ -35,3 +35,48 @@ A branch is an isolated responsibility, for a specific feature or issue, so all 
 ## What happens if two people edit the same file on different branches?
 
 Nothing happens unless they are merging the two branches. If they are merging the two branches, I find that Git is typically able to cleanly merge the code if the changes are on different lines, however, if the same lines are edited, then Git will make a merge conflict that needs to be resolved by someone (typically the person making the merge).
+
+# Git Concepts: Advanced Git Commands & When to Use Them
+
+## What does each command do?
+
+**git checkout main -- file**
+
+- This pulls out the specific file "file" from the main branch into the current working directory, which overwrites the current file "file" that you had. "--" tells Git that the text after -- is a file path. Your entire branch stays the same, and only that one file "file" is changed (it is staged automatically as well).
+
+**git cherry-pick commit**
+– The name speaks for itself, cherry-picking, so this command takes the changes from one specific commit, where "commit" in this command is the commit's hash (I had to remove the side arrows due to markdown format).
+
+- Git will create a new commit with a new hash from this command with a copy of the change.
+- This can cause conflicts like a merge can, because Git takes the diff for the file from the commit and tries to apply it to your current branch's version of the file.
+
+**git log**
+– This command displays the commit history of the branch you are on.
+
+**git blame <file>**
+– This annotates each file's line with information about the last commit that changed it, showing the author, commit hash and timestamp. It only shows the most recent change to the line.
+
+## When would you use it in a real project?
+
+**git checkout main -- file**
+– I assume this would be used if you've been working on a file and it is past a point of no return (bad refactor or riddled with bugs you cannot figure out), but the rest of your code on the branch is perfectly fine.
+
+- Whenever you want to just reset one file, not your whole branch.
+
+**git cherry-pick <commit>**
+– Perhaps if a teammate has pushed another important bug fix on another branch and you need that fix on your branch too. Essentially, when you need just one commit from another branch, but not the unrelated commits.
+
+**git log**
+– When you are trying to understand changes across and within files.
+
+- Perhaps if you are following a bug, or reviewing a pull request.
+
+**git blame file**
+– Whenever I would need to know who wrote a line of code and when they did. The commit message could also indicate why they wrote that line of code, so could help in finding a bug or performing a code review.
+
+## What surprised you while testing these commands?
+
+- When using checkout, if you had any uncommitted changes to that file they're just gone immediately, and that you need to be careful with this as Git does not check if this action is what you for sure want to do. It is a complete overwrite.
+- For cherry-pick, even though its the same change it produces a new commit with a new hash.
+- For git log, I was surprised that git log doesn't show commit history from other branches. It made sense thinking about it, but at first I was confused.
+- git blame, I didn't find anything particularly interesting on my repo, but using it on other projects I found if someone did a wide-scale change like adding a new Vscode setting (Prettier for instance) the freshest change is that author for _every single line_.
