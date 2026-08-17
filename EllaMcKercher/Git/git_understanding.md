@@ -108,3 +108,19 @@ It would be especially useful if multiple people are working on the same feature
 ## How does it compare to manually reviewing commits?
 
 With manual reviews, you would be going through each commit one by one, whereas git bisect allows you to use binary search to find the introduced bad/unintended behaviour. I think git bisect would be best for situations where there is many commits to sort through, however if it is 5ish commits (like I did in my practice), manual is more efficent.
+
+# Git Concepts: Meaningful Commit Messages
+
+## What makes a good commit message?
+
+Convention is to write the commit that describes the changes in a tense that ends the sentence "this commit will **" so "add ** feature" for example. The git message should be clear and each commit should have a logical change/responsibility so its easy to follow. I know some teams have specific message formats as well, my student team used "fix", "feat", to discern differences in changes.
+
+## How does a clear commit message help in team collaboration?
+
+It is easier to gain context from the code, and easier to review code. Clear messages also help teammates understand what is happening with the code, and I think it also helps you write cleaner, easier to interpret code because it forces you to do atomic changes for commits.
+
+From what I learned earlier, it also helps teammates use git blame easier (a good message will explain each line clearly).
+
+## How can poor commit messages cause issues later?
+
+Debugging, from experience, becomes very difficult because it is hard to isolate changes and understand the context of the changes. I find it also wastes the reviewers time, because if the codebase is full of non-descriptive commits, the reviewers and teammates will have to manually try to interpret what is happening.
