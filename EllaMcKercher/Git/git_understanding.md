@@ -5,7 +5,7 @@
 Staging is essentially picking which files you want in your commit, whereas committing records the changes to the repository along with the commit message. A commit is like
 a snapshot of the project.
 
-git reset HEAD <file> removes <file> from the staging area (your edits are still there in the working directory).
+git reset HEAD file removes file from the staging area (your edits are still there in the working directory).
 
 ## Why does Git separate these two steps?
 
