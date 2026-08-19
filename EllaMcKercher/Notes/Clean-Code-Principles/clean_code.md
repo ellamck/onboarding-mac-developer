@@ -48,35 +48,35 @@ I found this example on Dev.to (https://dev.to/andriy_ovcharov_312ead391/how-to-
 
 ## Rewrite the code in a cleaner, more structured way.
 
-`
-/_
-This function returns an array that has the multiples of the provided multipler parameter.
+`This function returns an array that has the multiples of the provided multipler parameter.
 It only does this if numberOfItems is positive.
-_/
 function getMultiples(numberOfItems, multiplier) {
 // The original check was non-sensical
 if (numberOfItems > 0) {
 return findMultiples(numberOfItems, multiplier);
 }
 return [];
-}
+}`
 
-/_
-This function generates an array of multiples of the multiplier parameter.
-_/
+`This function generates an array of multiples of the multiplier parameter.
 function findMultiples(numberOfItems, multiplier) {
 let multiplesList = [];
 for (let i = 0; i < numberOfItems; i++) {
 multiplesList.push(i \* multiplier);
 }
 return multiplesList;
-}
-`
+}`
 
 # Code Formatting & Style Guides
 
 ## Why is code formatting important?
 
+I believe it helps with consistency across a codebase, especially for development as a team. I noted another reason why this is important is because it improves readability of the code, making code review and understanding more efficient and effective. It also can reduce pull request merge conflict issues with diffs, as sometimes even a space difference can set off Git.
+
 ## What issues did the linter detect?
 
+Just simple doc formatting issues with the README.md file and my First_Time_User_Experience.md file. It fixed spacing and numbering.
+
 ## Did formatting the code make it easier to read?
+
+The change wasn't overly impactful for me, as this codebase is mainly documentation so far, but I have used Prettier and ESLint in the past and I definitely find using it worthwhile. It makes code, especially code shared in a team, easier to read and more consistent.
