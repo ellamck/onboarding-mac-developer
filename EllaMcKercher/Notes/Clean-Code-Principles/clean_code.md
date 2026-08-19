@@ -80,3 +80,19 @@ Just simple doc formatting issues with the README.md file and my First_Time_User
 ## Did formatting the code make it easier to read?
 
 The change wasn't overly impactful for me, as this codebase is mainly documentation so far, but I have used Prettier and ESLint in the past and I definitely find using it worthwhile. It makes code, especially code shared in a team, easier to read and more consistent.
+
+# Naming Variables & Functions
+
+## What makes a good variable or function name?
+
+Non-ambiguous, clear and short names. Variables are descriptive of what they are, functions are actions, and booleans begin with is or has. camelCase is normally used.
+
+## What issues can arise from poorly named variables?
+
+It takes a considerable amount of time to understand and review the code. It makes reading the code harder, and it creates unfamiliarity amongst teammates and reviewers. If the intent of the code is not clear, issues can also be harder to track down or diagnose.
+
+## How did refactoring improve code readability?
+
+Originally, there was a lot of questions and I spent a lot of mental effort just trying to understand what the code did. Once I had figured out better naming for each variable, I could actually understand the function's purpose. You do not have to figure out what each function does or what each variable is on the refactor, and it allows you to understand the code clearly and it takes less mental effort to verify the intended behaviour of the code.
+
+Additionally, splitting from one bloated function to two functions ensure the responsibility was atomic for each function, making it easier to understand.
