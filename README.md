@@ -7,12 +7,12 @@ Welcome to the macOS development team!
 Before you begin contributing to production code, it’s important to build a strong foundation in the tools, technologies, and workflows we use daily.  
 To guide you, we have created a structured onboarding path composed of multiple tasks across six key areas (apart from Company policies and other basic general areas):
 
-1. Be a Mac Power User  
-2. Git & Version Control  
-3. Swift Basics  
-4. Xcode Deep Dive  
-5. macOS Permissions & System Architecture  
-6. Networking & API Calls in Swift  
+1. Be a Mac Power User
+2. Git & Version Control
+3. Swift Basics
+4. Xcode Deep Dive
+5. macOS Permissions & System Architecture
+6. Networking & API Calls in Swift
 
 Each topic includes 8–10 tasks. These tasks are intentionally concise in GitHub Issues but explained in detail below.
 
@@ -22,11 +22,11 @@ Each topic includes 8–10 tasks. These tasks are intentionally concise in GitHu
 
 These tasks are designed to:
 
-- Make you independent and fast on macOS  
-- Teach you industry-standard Git workflows  
-- Build your Swift fundamentals  
-- Help you understand how Xcode really works under the hood  
-- Make you comfortable with permissions, entitlements, and system-level APIs  
+- Make you independent and fast on macOS
+- Teach you industry-standard Git workflows
+- Build your Swift fundamentals
+- Help you understand how Xcode really works under the hood
+- Make you comfortable with permissions, entitlements, and system-level APIs
 - Prepare you to work on real macOS apps involving networking, helper tools, system events, procesess, TCC permissions, login items, etc.
 
 By completing the tasks, you will gain the confidence and baseline skill set required for the real projects.
@@ -41,20 +41,20 @@ Each task appears as a **GitHub Issue**.
 
 Inside each issue, you will find:
 
-- **Task name**  
-- **Description**  
-- **Deliverables**  
-- **Checklists**  
-- Sometimes links or references  
+- **Task name**
+- **Description**
+- **Deliverables**
+- **Checklists**
+- Sometimes links or references
 
 Most tasks require you to:
 
-- Write a short explanation  
-- Create a small Swift / SwiftUI sample  
-- Share project code  
-- Upload screenshots  
-- Create your notes  
-- Build a demo proving your understanding  
+- Write a short explanation
+- Create a small Swift / SwiftUI sample
+- Share project code
+- Upload screenshots
+- Create your notes
+- Build a demo proving your understanding
 
 ---
 
@@ -75,6 +75,7 @@ If you are unsure, ask your mentor.
 ---
 
 ## 📂 Folder Structure (Recommended)
+
 YourName/
 PowerUser/
 Git/
@@ -84,26 +85,25 @@ macOSPermissions/
 API/
 Notes/
 
-
 Upload your code samples, notes, markdown summaries, and screenshots inside these folders.
 
 ---
 
 ## 🎯 What We Expect from You
 
-- Be consistent, not fast.  
-- Document your learnings.  
-- Ask questions if stuck; don’t guess.  
-- Understand the “why”, not just the “how”.  
+- Be consistent, not fast.
+- Document your learnings.
+- Ask questions if stuck; don’t guess.
+- Understand the “why”, not just the “how”.
 - Produce clean code and neat explanations.
 
 Your performance in these tasks will help us evaluate:
 
-- Problem-solving  
-- Technical clarity  
-- Communication  
-- Ability to work independently  
-- Understanding of macOS-level concepts  
+- Problem-solving
+- Technical clarity
+- Communication
+- Ability to work independently
+- Understanding of macOS-level concepts
 
 ---
 
@@ -121,11 +121,11 @@ Your performance in these tasks will help us evaluate:
 
 You will be assigned:
 
-- Real modules  
-- Bug fixes  
-- UI components  
-- API integration tasks  
-- System-level helpers  
+- Real modules
+- Bug fixes
+- UI components
+- API integration tasks
+- System-level helpers
 - And progressively, full macOS features
 
 This onboarding ensures you are ready.
@@ -141,4 +141,3 @@ We’re here to help you grow into a strong macOS engineer.
 Welcome to the team!
 
 To stay organized, create folders:
-
