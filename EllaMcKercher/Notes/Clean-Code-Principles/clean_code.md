@@ -96,3 +96,13 @@ It takes a considerable amount of time to understand and review the code. It mak
 Originally, there was a lot of questions and I spent a lot of mental effort just trying to understand what the code did. Once I had figured out better naming for each variable, I could actually understand the function's purpose. You do not have to figure out what each function does or what each variable is on the refactor, and it allows you to understand the code clearly and it takes less mental effort to verify the intended behaviour of the code.
 
 Additionally, splitting from one bloated function to two functions ensure the responsibility was atomic for each function, making it easier to understand.
+
+# Writing Small, Focused Functions
+
+## Why is breaking down functions beneficial?
+
+It ensures functions have isolated, specific responsibilities, and this makes it not only easier to understand them, but easier to trace unintended behaviour. It also helps when testing, it is so much easier to test one responsibility in one test.
+
+## How did refactoring improve the structure of the code?
+
+It split a bloated function into two, with a clear responsibility for both. The first function delegates, so it is easier to understand why the positive check occurs, and when the generation of multiples should occur. Two functions made it easier to catch any logic bugs, and the flow of control is easy to understand (the first function calls upon the second).
