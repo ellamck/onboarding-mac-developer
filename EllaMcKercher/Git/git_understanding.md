@@ -124,3 +124,28 @@ From what I learned earlier, it also helps teammates use git blame easier (a goo
 ## How can poor commit messages cause issues later?
 
 Debugging, from experience, becomes very difficult because it is hard to isolate changes and understand the context of the changes. I find it also wastes the reviewers time, because if the codebase is full of non-descriptive commits, the reviewers and teammates will have to manually try to interpret what is happening.
+
+# Git Concepts: Creating & Reviewing Pull Requests
+
+## Why are PRs important in a team workflow?
+
+It is the last review before code reaches the development or main branch, where the code needs to be well-documented, formatted, clean, and working. PRs allow teammates to review others code, making comments and it creates opportunity for teammates to identify bugs you couldn't find yourself, or better approaches to the code. A typical standard is two people need to review a PR, so it creates accountability within the team as well, as the reviewers are responsible for understanding the changes too.
+
+They are also asynchronous, so individuals can review, request changes and approve PRs at any time, and that works well with software teams that are on different schedules and in different timezones.
+
+## What makes a well-structured PR?
+
+Prior to making the PR, the PR should have merged the dev branch or the main branch appropriately so that the most recent changes are on the target branch. The title and description of the PR should be direct and clear, and represent the changes made. I found that companies and teams typically have a PR template so that the description is detailed enough and standardised.
+
+The PR should reference the source of the change (could be a support ticket, a GitHub issue). The other metadata, such as related PRs, blockers, etc. should be filled out, and screenshots of UI changes should be added with a before and after comparison.
+
+The PR should clearly state if the changes have any side effects, or new behaviour, and if there has been refactoring. If there are side effects, these should also be explained.
+
+The PR itself should focus on one thing/concept - a new feature, fixing an issue, etc. So that it is atomic and easy to review.
+
+## What did you learn from reviewing an open-source PR?
+
+- You should always amend minor changes into a previous commit, and you can do this via git commit --amend to fold a small correction into the previous commit. I did not know you could do this.
+- You should add a comment once done addressing all review comments, so that everyone is notified and it is documented.
+- It is important to also note of good code and design choices, because it helps the team identify good practices.
+- You should always pull the branch and try running the code yourself!
