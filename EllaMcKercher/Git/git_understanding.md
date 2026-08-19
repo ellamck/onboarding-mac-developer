@@ -124,3 +124,17 @@ From what I learned earlier, it also helps teammates use git blame easier (a goo
 ## How can poor commit messages cause issues later?
 
 Debugging, from experience, becomes very difficult because it is hard to isolate changes and understand the context of the changes. I find it also wastes the reviewers time, because if the codebase is full of non-descriptive commits, the reviewers and teammates will have to manually try to interpret what is happening.
+
+# Git Concepts: Merge Conflicts & Conflict Resolution
+
+## What caused the conflict?
+
+I was working on a branch that I based off of the "dev" branch, my team's working development branch. To follow PR protocol, I merged dev back into my branch before making the PR. A teammate had recently merged in a new pull request, and some of his changes occurred at the end of some of the files I edited, meaning it caused a merge conflict because they were on the same lines of code.
+
+## How did you resolve it?
+
+Because the features my teammate added and the features I added were independent of each other, I resolved it by accepting both changes. This way, Git merged it for me, and I checked to ensure that his changes were unaffected before pushing the merge. I referenced the current state of the dev branch and compared it to mine with the changes.
+
+## What did you learn?
+
+That you could both remove the header lines and do it manually, or choose the automatic function "accept both changes" or accept one of the branches changes. I found I preferred "accept both" because it automatically did it for me and in this particular case, I needed to accept both changes. If I am working on a more complicated conflict where certain changes need to be accepted but others rejected, I typically use the manual resolution option.
