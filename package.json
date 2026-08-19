@@ -1,0 +1,32 @@
+{
+  "name": "onboarding-mac-developer",
+  "version": "1.0.0",
+  "description": "Welcome to the macOS development team!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ellamck/onboarding-mac-developer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ellamck/onboarding-mac-developer/issues"
+  },
+  "homepage": "https://github.com/ellamck/onboarding-mac-developer#readme",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.8.1",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.11.0",
+    "prettier": "3.9.6"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  }
+}

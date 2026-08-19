@@ -72,3 +72,11 @@ multiplesList.push(i \* multiplier);
 return multiplesList;
 }
 `
+
+# Code Formatting & Style Guides
+
+## Why is code formatting important?
+
+## What issues did the linter detect?
+
+## Did formatting the code make it easier to read?
