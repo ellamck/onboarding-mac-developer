@@ -106,3 +106,13 @@ It ensures functions have isolated, specific responsibilities, and this makes it
 ## How did refactoring improve the structure of the code?
 
 It split a bloated function into two, with a clear responsibility for both. The first function delegates, so it is easier to understand why the positive check occurs, and when the generation of multiples should occur. Two functions made it easier to catch any logic bugs, and the flow of control is easy to understand (the first function calls upon the second).
+
+# Avoiding Code Duplication
+
+## What were the issues with duplicated code?
+
+I have had a past experience where logic was duplicated in the codebase, and I had to refactor or else I would have had to fix the same bug twice, i.e. bugs then get duplicated as well. This also meant if one of the instances of logic was updated, we had to remember to update the other's logic, and this causes inconsistencies and it is much harder to test.
+
+## How did refactoring improve maintainability?
+
+It is easier to maintain code that has focused responsibilities, and makes changes safer and localised. Also, refactoring made it easier to add extended code, because the actual generative function is decoupled from the delegation logic. Someone unfamiliar with the code could also easily understand what is happening and maintain the code, whereas before they would have had difficulty with understanding due to the bloated responsibility and poorly named functions and variables.
