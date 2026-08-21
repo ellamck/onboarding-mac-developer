@@ -233,3 +233,83 @@ That same blog, https://refine.dev/blog/code-comments/, by Özgur Akça outlines
 - You should not comment when the comment is explaining the what, not why, that is when comments are redundant
 - If the code is to explain something confusing, it should first be examined if the code itself can be modified before adding the comment
 - If the comment is not permanent, that is, the comment's description may not be accurate after some time, the comment likely shouldn't be added
+
+# Handling Errors & Edge Cases
+
+## Research strategies for handling errors and edge cases in code
+
+**Handling errors**
+I found this blog by Jesse Warden: https://medium.com/@jesterxl/error-handling-strategies-b82d1b04f105
+
+- Throw, try, catch, finally are ways to implement an error handling strategy
+  - Throw makes the code throw an error
+  - Try wraps operations in a try block to catch and handle failures gracefully
+  - Finally is for when there is clean-up that needs to happen regardless of failure or not
+- Explicit returns: this is when the code returns a value that the caller needs to check. This way the function always returns, but the return value itself signals if it failed or not.
+- Either typing: this is a more structured explicit return, it is kind of like returning an enum that is a dichotomy - the type returned is either a success value or error value.
+- Pattern matching: branching based on the type of value, this is often used with explicit returns.
+
+**Edge cases**
+I found this blog by Surendar K S: https://medium.com/@surendarks/steps-to-develop-the-edge-case-skills-in-dsa-4192b76bcb3c
+
+1. Understand the problem deeply
+2. Ask questions regarding the problem's nature (e.g. can the array be empty?)
+3. Practice thinking in extremes
+4. Create test cases manually to cover all possibilities
+5. Simulate the algorithm step-by-step (option is to run your code on paper or with a debugger)
+6. Use assertions
+7. Study edge cases of similar problems/implementations
+
+**Guard clauses**
+https://dev.to/clintwinter/use-guard-clauses-for-cleaner-code-3ap7
+
+- Guard clauses are early returns, throws, breaks or continues to catch invalid conditions
+- Without these code often ends up deeply nested
+- Guard clauses improve readability and helps error handling, keeps the main logic separate
+
+## Function that does not properly handle errors or invalid inputs
+
+`function getAverageAge(users) {`
+`  let total = 0;`
+`  for (let i = 0; i < users.length; i++) {`
+`    total = total + users[i].age;`
+`  }`
+`  return total / users.length;`
+`}`
+
+## Refactored function
+
+`function getAverageAge(users) {`
+`  // Guard clauses: reject invalid input immediately, with a clear reason`
+`  if (!Array.isArray(users)) {`
+`    throw new TypeError("getAverageAge expects an array of users");`
+`  }`
+`  if (users.length === 0) {`
+`    throw new RangeError("Cannot calculate average age of an empty list");`
+`  }`
+
+`  let total = 0;`
+`  for (let i = 0; i < users.length; i++) {`
+`    const age = users[i].age;`
+`    if (typeof age !== "number" || Number.isNaN(age)) {`
+`      throw new TypeError(`User at index ${i} has an invalid age: ${age}`);`
+`    }`
+`    total += age;`
+`  }`
+
+`  return total / users.length;`
+`}`
+
+## What was the issue with the original code?
+
+- There was no check for null input
+- No check for an empty array, which is one of the edge cases
+- There was no validation logic for user's age, it could be null or NaN, and it wouldn't signal anything is wrong
+- No indication to the caller of the function that the function could fail
+
+## How does handling errors improve reliability?
+
+- Most failures can no longer fail silently, this increases visibility of a problem
+- It helps with reliability because implementations like adding a Guard Clause can prevent small errors from accumulating into large ones, as the guards catch the issues first and aren't entangled in the main logic
+- Errors contain useful information, so if new changes are made or something fails, it is much easier to debug, increasing the reliability of the code
+- Reliability is when there is little unpredictability, and handling errors increases the predictability of the code in an informational way
