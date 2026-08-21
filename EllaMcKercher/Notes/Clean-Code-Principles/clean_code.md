@@ -313,3 +313,11 @@ https://dev.to/clintwinter/use-guard-clauses-for-cleaner-code-3ap7
 - It helps with reliability because implementations like adding a Guard Clause can prevent small errors from accumulating into large ones, as the guards catch the issues first and aren't entangled in the main logic
 - Errors contain useful information, so if new changes are made or something fails, it is much easier to debug, increasing the reliability of the code
 - Reliability is when there is little unpredictability, and handling errors increases the predictability of the code in an informational way
+
+# Writing Unit Tests for Clean Code
+
+## Importance of unit testing in software development
+
+## How do unit tests help keep code clean?
+
+## What issues did you find while testing?
