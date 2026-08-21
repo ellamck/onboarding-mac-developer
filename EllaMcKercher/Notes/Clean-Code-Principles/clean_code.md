@@ -185,3 +185,51 @@ Refactored code:
 - Each variable and function's purpose was easily understood from the name
 - The conditionals were simplified, making the conditional checks easier to understand and no longer redundant
 - Removal of the console log so that that specific responsibility isn't entangled with the primary responsibility of this block of code
+
+# Commenting & Documentation
+
+## Find an example of poorly commented code and rewrite the comments to be more useful.
+
+I found this blog that outlined poorly commented code and their improved examples https://refine.dev/blog/code-comments/:
+
+`// This function gets the items from the database (d) and filters them`
+`// based on the user's permissions (p).`
+`function getFltItems(d, p) {`
+` // ...`
+`}`
+
+Improved code:
+`function filterItemsByUserPermissions(items, permissions) {`
+`// ...`
+`}`
+
+This code states the obvious:
+`// This is a class for a Car`
+`class Car {`
+`  // constructor`
+`  constructor() {`
+`    // ...`
+`  }`
+`}`
+
+`// increment the count`
+`count++;`
+
+And the improved code comments would explain things not inherently obvious, rather than stating the obvious.
+
+## When should you add comments?
+
+That same blog, https://refine.dev/blog/code-comments/, by Özgur Akça outlines a few areas that I found helpful:
+
+- "Good comments don't explain what the code is doing, they explain why"
+- Function definitions are a great example of how code typically has a gap between business decisions and the actual implementation of code. Comments can be used to explain the why of the business and product logic
+- Documenting solutions that are not obvious (but the code needs to remain that way). Comments can also explain the trade-offs of the implementation
+- Formal documentation, like Docstrings and XML comments for libraries or APIs
+- Comments can warn for constraints of the current implementation
+
+## When should you avoid comments and instead improve the code?
+
+- When there is poorly named code, you should rename the ambiguities rather than using a comment to temporarily fix it
+- You should not comment when the comment is explaining the what, not why, that is when comments are redundant
+- If the code is to explain something confusing, it should first be examined if the code itself can be modified before adding the comment
+- If the comment is not permanent, that is, the comment's description may not be accurate after some time, the comment likely shouldn't be added
