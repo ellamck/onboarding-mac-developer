@@ -14,3 +14,4 @@
 ## Terminal Created Folder Structure
 
 I created the remaining folders needed for the onboarding using the terminal:
+<img width="1031" height="246" alt="Screenshot 2026-08-21 at 16 50 27" src="https://github.com/user-attachments/assets/59e3456e-b9de-433a-bb98-866fd2dc6d1a" />
