@@ -801,3 +801,19 @@ Naming improves the readability, consistent and clear naming helps you follow wh
 - No duplicated logic means there are not duplicated bugs
 - Bugs are easier to isolate because of the lack of god objects, long functions and there are informational errors
 - Error handling, guard clauses and explicit returns narrow down where a bug could exist
+
+# Static Analysis Checks in CI/CD
+
+## What is the purpose of CI/CD?
+
+- CI/CD catches bugs automatically and early
+- Enforces code standards automatically
+- Helps with integration and merging changes frequently
+- Like tests, it helps with verifying your refactor didn't introduce issues
+- Provides feedback on PRs for reviewers (it passes tests before they review it, so they know it is working in some capacity)
+
+## How does automating style checks improve project quality?
+
+## What are some challenges with enforcing checks in CI/CD?
+
+## How do CI/CD pipelines differ between small projects and large teams?
