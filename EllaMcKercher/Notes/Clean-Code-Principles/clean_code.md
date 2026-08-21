@@ -316,8 +316,14 @@ https://dev.to/clintwinter/use-guard-clauses-for-cleaner-code-3ap7
 
 # Writing Unit Tests for Clean Code
 
-## Importance of unit testing in software development
-
 ## How do unit tests help keep code clean?
 
+- I think it forces you to write code that is atomic and well-focused, as it is difficult to write unit tests for bloated code
+- It helps you when refactoring through providing a framework that lets you know if your new changes cause issues or not
+- When writing tests, it helps you realise if there are vague functions or code blocks, as it will be hard to discern what to test
+- It makes you think about the edge cases and error handling
+- In my experience, they also help you catch duplicate code, because you will realise you've already tested that exact functionality before
+
 ## What issues did you find while testing?
+
+I noticed I didn't check the edge case of divide by 0, so I implemented throwing an error in that function. I then added a new unit test to determine if the function throws the intended error.
