@@ -116,3 +116,72 @@ I have had a past experience where logic was duplicated in the codebase, and I h
 ## How did refactoring improve maintainability?
 
 It is easier to maintain code that has focused responsibilities, and makes changes safer and localised. Also, refactoring made it easier to add extended code, because the actual generative function is decoupled from the delegation logic. Someone unfamiliar with the code could also easily understand what is happening and maintain the code, whereas before they would have had difficulty with understanding due to the bloated responsibility and poorly named functions and variables.
+
+# Refactoring Code for Simplicity
+
+## Research refactoring methods
+
+I found these from Martin Fowler:
+
+- Extract method: moving code from a bloated function/file to its own function
+- Extract variable: assign a complicated expression a new local variable so the code is easier to follow
+- Remove magic numbers
+- Consolidate conditional expression: combine related conditions into one condition
+- Remove duplication: make reusable component or method instead
+
+## Messy code
+
+I had difficulty finding online messy code examples, so I asked ChatGPT to generate a messy function:
+
+`function processOrder(order) {`
+`let d = 0;`
+`if (order.total > 100 && order.total <= 500) {`
+`d = order.total * 0.05;`
+`} else if (order.total > 500 && order.total <= 1000) {`
+`d = order.total * 0.1;`
+`} else if (order.total > 1000) {`
+`d = order.total * 0.15;`
+`}`
+`let f = order.total - d;`
+`if (order.isMember == true) {`
+`f = f - 5;`
+`}`
+`console.log("Final: " + f);`
+`return f;`
+`}`
+
+Refactored code:
+`const MEMBER_DISCOUNT = 5;`
+
+`function getDiscountRate(total) {`
+`if (total > 1000) return 0.15;`
+`if (total > 500) return 0.1;`
+`if (total > 100) return 0.05;`
+`return 0;`
+`}`
+
+`function applyMemberDiscount(total, isMember) {`
+`return isMember ? total - MEMBER_DISCOUNT : total;`
+`}`
+
+`function calculateFinalTotal(order) {`
+`const discount = order.total * getDiscountRate(order.total);`
+`const totalAfterDiscount = order.total - discount;`
+`return applyMemberDiscount(totalAfterDiscount, order.isMember);`
+`}`
+
+## What made the original code complex?
+
+- There were vague parameter, variable and function names. This made it hard to understand the function's intent and to follow the flow of the function
+- The if conditions were essentially duplicated, overcomplicating the checks
+- There are a lot of magic numbers, so it was hard to understand their significance
+- The function was bloated with many responsibilities making it harder to debug and understand
+- There was a console log line in the code
+- There was an `== true` statement on a variable that was already a boolean, redundant
+
+## How did refactoring improve it?
+
+- Each function has one discrete responsibility, clarifying the intent of the function and making it easier to maintain, debug and understand
+- Each variable and function's purpose was easily understood from the name
+- The conditionals were simplified, making the conditional checks easier to understand and no longer redundant
+- Removal of the console log so that that specific responsibility isn't entangled with the primary responsibility of this block of code
