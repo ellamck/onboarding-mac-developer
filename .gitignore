@@ -6,3 +6,5 @@
 
 .pytest_cache/
 node_modules/
+__pycache__/
+**/__pycache__/
