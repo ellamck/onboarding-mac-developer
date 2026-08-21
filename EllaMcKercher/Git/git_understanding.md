@@ -163,4 +163,3 @@ Because the features my teammate added and the features I added were independent
 ## What did you learn?
 
 That you could both remove the header lines and do it manually, or choose the automatic function "accept both changes" or accept one of the branches changes. I found I preferred "accept both" because it automatically did it for me and in this particular case, I needed to accept both changes. If I am working on a more complicated conflict where certain changes need to be accepted but others rejected, I typically use the manual resolution option.
-

@@ -4,7 +4,9 @@
   "description": "Welcome to the macOS development team!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -23,10 +25,7 @@
     "eslint": "^10.8.1",
     "eslint-config-prettier": "^10.1.8",
     "globals": "^17.11.0",
+    "husky": "^9.1.7",
     "prettier": "3.9.6"
-  },
-  "scripts": {
-    "lint": "eslint .",
-    "format": "prettier --write ."
   }
 }
