@@ -8,3 +8,8 @@
 node_modules/
 __pycache__/
 **/__pycache__/
+
+# Xcode
+xcuserdata/
+*.xcuserstate
+*.xcworkspace/xcuserdata/
