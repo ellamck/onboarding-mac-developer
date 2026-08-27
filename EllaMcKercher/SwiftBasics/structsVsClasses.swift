@@ -17,14 +17,14 @@ struct Feature {
 }
 
 class Dwelling {
-    var dimensions = Dimension()
-    var features = Feature()
+    var dimensions: Dimension
+    var features: Feature
     var address: String
     var price: Int
     
     init(dimensions: Dimension, features: Feature, address: String, price: Int) {
-        self.dimensions = Dimension
-        self.features = Feature
+        self.dimensions = dimensions
+        self.features = features
         self.address = address
         self.price = price
     }
@@ -61,6 +61,17 @@ class Apartment: Dwelling {
     init(dimensions: Dimension, features: Feature, address: String, price: Int, floorNumber: Int, balcony: Bool) {
         self.floorNumber = floorNumber
         self.balcony = balcony
-        super.init(dimensions: Dimension, features: Feature, address: address, price: price)
+        super.init(dimensions: dimensions, features: features, address: address, price: price)
     }
 }
+
+var exampleApartment = Apartment(
+    dimensions: Dimension(squareFeet: 800, stories: 1),
+    features: Feature(bedrooms: 2, baths: 1, garage: false),
+    address: "456 Unit Ave",
+    price: 400000,
+    floorNumber: 5,
+    balcony: true
+)
+
+print("Apartment address: \(exampleApartment.address), floor: \(exampleApartment.floorNumber)")
