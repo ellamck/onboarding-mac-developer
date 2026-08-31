@@ -1,10 +1,12 @@
 import SwiftUI
 import AVFoundation // For camera perms
 import Photos
+import ApplicationServices // For accessibility API
 
 struct ContentView: View {
     @State private var cameraStatus: String = "Not requested"
     @State private var photosStatus: String = "Not requested"
+    @State private var accessibilityStatus: String = "Not checked"
     
     var body: some View {
         VStack(spacing: 20) {
@@ -14,6 +16,7 @@ struct ContentView: View {
                     await requestCameraPermission()
                 }
             }
+            Text("Camera status: \(cameraStatus)")
             
             Divider()
             
@@ -21,6 +24,15 @@ struct ContentView: View {
             Button("Request Photos Access") {
                 requestPhotosPermission()
             }
+            Text("Photos status: \(photosStatus)")
+            
+            Divider()
+            
+            Text("Is there Accessibility permissions for this Application?")
+            Button("Check Accessibility Access") {
+                checkAccessibilityPermission()
+            }
+            Text("Accessibility status: \(accessibilityStatus)")
         }
         .padding()
     }
@@ -69,6 +81,26 @@ struct ContentView: View {
                 }
             }
         }
+    }
+    
+    func checkAccessibilityPermission() {
+        //https://developer.apple.com/documentation/applicationservices/1460720-axisprocesstrusted
+        let trusted = AXIsProcessTrusted()
+        accessibilityStatus = trusted ? "Trusted" : "Not trusted"
+        if !trusted {
+            requestAccessibilityPermission()
+        }
+    }
+    
+    func requestAccessibilityPermission() {
+        // options = a dictionary where key = special text label Apple uses to mean prompt the user
+        // value is true
+        // therefore show prompt, unwrap it for swift, and convert it to string
+        // essentially options = ["prompt": true]
+        let options: NSDictionary = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true]
+        // if not trusted, then it will prompt as a side effect because AXIsProcessTrustedWithOptions can trigger the prompt if WithOptions
+        let trusted = AXIsProcessTrustedWithOptions(options)
+        accessibilityStatus = trusted ? "Trusted" : "Not Trusted (check System Settings)"
     }
 }
 
